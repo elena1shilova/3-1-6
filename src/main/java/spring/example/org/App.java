@@ -1,10 +1,12 @@
 package spring.example.org;
 
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import org.springframework.http.ResponseEntity;
 import spring.Commun;
 import spring.config.MyConfig;
 import spring.models.User;
 
+import java.io.IOException;
 import java.util.List;
 
 
@@ -14,13 +16,17 @@ import java.util.List;
  */
 public class App 
 {
-    public static void main( String[] args ) {
+    public static void main( String[] args ) throws IOException {
 
         AnnotationConfigApplicationContext context =
                 new AnnotationConfigApplicationContext(MyConfig.class);
 
         Commun commun = context.getBean("commun", Commun.class);
-        List<User> allUser =  commun.getAllUser();
-        System.out.println(allUser);
+        String allUser =  commun.getAllUser();
+        //System.out.println(allUser);
+User user = new User();
+        commun.addUser(allUser, user);
+        //String allUser1 =  commun.getAllUser();
+        commun.updateUser(allUser);
     }
 }
