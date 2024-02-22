@@ -25,8 +25,9 @@ public class App
         String allUser =  commun.getAllUser();
         //System.out.println(allUser);
 User user = new User();
-        commun.addUser(allUser, user);
+        //commun.addUser(allUser, user);
         //String allUser1 =  commun.getAllUser();
-        commun.updateUser(allUser);
+        //commun.updateUser(allUser);
+        System.out.println(commun.addUser(allUser, user) + commun.updateUser(allUser) + commun.deleteUser(allUser, 3L));
     }
 }
